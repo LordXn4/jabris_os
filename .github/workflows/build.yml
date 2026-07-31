@@ -13,6 +13,13 @@ jobs:
         with:
           flutter-version: '3.22.3'
           channel: 'stable'
+      - name: Fix QName bug
+        run: |
+          FLUTTER_FILE=$(find $RUNNER_TOOL_CACHE -name flutter.groovy | head -1)
+          echo "Patching $FLUTTER_FILE"
+          sed -i 's/import groovy.xml.QName//' $FLUTTER_FILE
+          sed -i 's/import groovy.util.QName//' $FLUTTER_FILE
+          head -15 $FLUTTER_FILE
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
