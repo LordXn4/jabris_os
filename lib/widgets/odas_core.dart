@@ -9,7 +9,7 @@ class OdasCore extends StatelessWidget {
       height: 180,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.cyanAccent.withValues(alpha: 0.15),
+        color: Colors.cyanAccent.withOpacity(0.15),
         border: Border.all(
           color: Colors.cyanAccent,
           width: 3,
