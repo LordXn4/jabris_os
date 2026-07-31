@@ -13,6 +13,14 @@ jobs:
         with:
           flutter-version: '3.22.3'
           channel: 'stable'
+      - name: Patch flutter.groovy QName bug
+        run: |
+          FILE=$(find $RUNNER_TOOL_CACHE -name flutter.groovy | head -1)
+          echo "Patching $FILE"
+          # Remove as 2 linhas que usam QName e troca XmlParser por XmlSlurper
+          sed -i 's/def manifest = new XmlParser().parse/# def manifest = new XmlParser().parse/' $FILE
+          sed -i 's/if (entry.key instanceof QName)/if (false)/' $FILE
+          grep -n "QName\|XmlParser" $FILE || echo "QName removido"
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
