@@ -1,20 +1,24 @@
 name: jabris_os
-description: "A new Flutter project."
+description: JABRIS OS - Jarvis do Homem de Ferro
 publish_to: 'none'
 version: 1.0.0+1
-
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.2
+  speech_to_text: ^6.6.2
+  flutter_tts: ^4.0.2
+  permission_handler: ^11.3.1
+  google_generative_ai: ^0.4.3
+  avatar_glow: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
