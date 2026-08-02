@@ -227,121 +227,89 @@ $pergunta
 
 
         child: Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
 
-          mainAxisAlignment: MainAxisAlignment.center,
+    Text(
+      "O.D.A.S OS",
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        letterSpacing: 8,
+        color: Colors.cyanAccent,
+        fontSize: 28,
+      ),
+    ),
 
-          children: [
+    SizedBox(height: 70),
 
-
-            SizedBox(height:60),
-
-
-
-            Text(
-
-              "O.D.A.S",
-
-              style: TextStyle(
-
-                letterSpacing:8,
-
-                color:Colors.cyanAccent,
-
-                fontSize:25,
-
+    Center(
+      child: AvatarGlow(
+        animate: _listening,
+        glowColor: Colors.cyanAccent,
+        child: GestureDetector(
+          onTap: _listen,
+          child: Container(
+            width: 160,
+            height: 160,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: Colors.cyanAccent,
+                width: 3,
               ),
-
             ),
 
-
-
-            Spacer(),
-
-
-
-
-            AvatarGlow(
-
-              animate:_listening,
-
-              glowColor:Colors.cyanAccent,
-
-
-              child: GestureDetector(
-
-                onTap:_listen,
-
-
-                child: Container(
-
-                  width:140,
-
-                  height:140,
-
-
-                  decoration:BoxDecoration(
-
-                    shape:BoxShape.circle,
-
-                    border:Border.all(
-
-                      color:Colors.cyanAccent,
-
-                      width:2,
-
-                    ),
-
-                  ),
-
-
-                  child:Icon(
-
-                    _listening
-
-                    ? Icons.mic
-
-                    : Icons.mic_none,
-
-
-                    size:60,
-
-                    color:Colors.cyanAccent,
-
-                  ),
-
-
-                ),
-
-              ),
-
-            ),
-
-
-
-
-            SizedBox(height:20),
-
-
-
-            Text(
-
+            child: Icon(
               _listening
+                  ? Icons.mic
+                  : Icons.mic_none,
 
-              ? "Ouvindo..."
-
-              : _text,
-
-
-              style:TextStyle(
-
-                color:Colors.white70,
-
-                fontSize:18,
-
-              ),
-
+              size: 70,
+              color: Colors.cyanAccent,
             ),
+          ),
+        ),
+      ),
+    ),
 
+    SizedBox(height: 35),
+
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+
+      child: Text(
+        _listening
+            ? "Ouvindo..."
+            : _text,
+
+        textAlign: TextAlign.center,
+
+        style: TextStyle(
+          color: Colors.white70,
+          fontSize: 18,
+        ),
+      ),
+    ),
+
+    SizedBox(height: 40),
+
+    Padding(
+      padding: EdgeInsets.all(20),
+
+      child: Text(
+        _response,
+
+        textAlign: TextAlign.center,
+
+        style: TextStyle(
+          color: Colors.cyanAccent,
+          fontSize: 18,
+        ),
+      ),
+    ),
+  ],
+)
 
 
 
