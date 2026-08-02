@@ -51,21 +51,19 @@ class _ODASPageState extends State<ODASPage> {
   }
 
 
-  Future<void> _init() async {
+ Future<void> _init() async {
+  await Permission.microphone.request();
 
-    await Permission.microphone.request();
+  await _speech.initialize();
 
-    await _speech.initialize();
+  // Configuração da voz do ODAS
+  await _tts.setLanguage("pt-BR");
+  await _tts.setSpeechRate(0.38);
+  await _tts.setPitch(0.75);
+  await _tts.setVolume(1.0);
 
-    await _tts.setLanguage("pt-BR");
-    await _tts.setSpeechRate(0.45);
-    await _tts.setPitch(0.9);
-
-    _speak(
-      "Sistemas online. Bem vindo senhor.",
-    );
-  }
-
+  _speak("Sistemas online. Bem vindo senhor.");
+}
 
   Future<void> _speak(String text) async {
 
